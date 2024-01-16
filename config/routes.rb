@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :authors
   resources :books
+
+  get 'about', to: "pages#about"
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "pages#home"
 end
