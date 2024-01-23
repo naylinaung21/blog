@@ -2,6 +2,9 @@
   <tr> 
     <td class="text-dark fw-bolder text-break fs-6"><%= book.name %></td>
     <td class="text-dark fw-bolder fs-6"><%= book.price %></td>
-    <td class="text-dark fw-bolder fs-6"><%= get_author_name(book.author_id) %></td>    
+    <td class="text-dark fw-bolder fs-6"><%= get_author_name(book.author_id) %></td>   
+    <td>
+      <%= button_to "Destroy", author_book_path(@author,book), method: :delete %>
+    </td> 
   </tr> 
 </div>

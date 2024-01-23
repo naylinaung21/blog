@@ -3,7 +3,8 @@
 <%= render @author %>
 
 <div class="d-flex justify-content-between">
-  <p class="text-dark">Total Book: <%= @author.books.size %></p>  
+  <p class="text-dark">Total Book: <%= @author.books_count %></p>  
+  <%= @author.books.size %>
   <%= link_to "New book", [:new, @author, :book], class: "btn btn-primary" %>
 </div>
 <div class="card-body py-3">      
@@ -14,6 +15,7 @@
           <th>Name</th>
           <th>Price</th>
           <th>Author</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody> 

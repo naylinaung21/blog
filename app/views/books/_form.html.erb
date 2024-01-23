@@ -22,11 +22,10 @@
   </div>
 
   <div>
-    <%= form.label :author_id, style: "display: block" %>
-    <%= form.text_field :author_id %>
+    <%= form.hidden_field :author_id %>
   </div>
 
-  <div>
+  <div class="mt-3">
     <%= form.submit %>
   </div>
 <% end %>
