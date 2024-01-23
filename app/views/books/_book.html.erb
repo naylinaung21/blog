@@ -1,17 +1,7 @@
 <div id="<%= dom_id book %>">
-  <p>
-    <strong>Name:</strong>
-    <%= book.name %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= book.price %>
-  </p>
-
-  <p>
-    <strong>Author:</strong>
-    <%= book.author_id %>
-  </p>
-
+  <tr> 
+    <td class="text-dark fw-bolder text-break fs-6"><%= book.name %></td>
+    <td class="text-dark fw-bolder fs-6"><%= book.price %></td>
+    <td class="text-dark fw-bolder fs-6"><%= get_author_name(book.author_id) %></td>    
+  </tr> 
 </div>

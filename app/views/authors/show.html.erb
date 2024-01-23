@@ -2,7 +2,26 @@
 
 <%= render @author %>
 
-<%= @books %>
+<div class="d-flex justify-content-between">
+  <p class="text-dark">Total Book: <%= @author.books.size %></p>  
+  <%= link_to "New book", [:new, @author, :book], class: "btn btn-primary" %>
+</div>
+<div class="card-body py-3">      
+  <div class="table-responsive overflow-auto" id="admin_groups">
+    <table class="table table-bordered table-row-gray-100 align-middle gs-0 gy-3">
+      <thead>
+        <tr class="fw-bolder text-muted"> 
+          <th>Name</th>
+          <th>Price</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody> 
+        <%= render @books %>        
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <div>
   <%= link_to "Edit this author", edit_author_path(@author) %> |
@@ -10,3 +29,4 @@
 
   <%= button_to "Destroy this author", @author, method: :delete %>
 </div>
+

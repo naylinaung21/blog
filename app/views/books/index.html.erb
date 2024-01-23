@@ -6,9 +6,26 @@
   <% @books.each do |book| %>
     <%= render book %>
     <p>
-      <%= link_to "Show this book", book %>
+      <%#= link_to "Show this book", book %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New book", new_book_path %>
+<div class="card-body py-3">      
+  <div class="table-responsive overflow-auto" id="admin_groups">
+    <table class="table table-row-bordered table-row-gray-100 align-middle gs-0 gy-3">
+      <thead>
+        <tr class="fw-bolder text-muted"> 
+          <th>Name</th>
+          <th>Price</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody> 
+        <%= render @books %>        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to "New book", new_author_book_path %>

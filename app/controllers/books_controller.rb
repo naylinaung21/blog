@@ -12,7 +12,8 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = Book.new
+    @author = Author.find(params[:author_id])
+    @book = @author.books.build
   end
 
   # GET /books/1/edit
@@ -21,11 +22,12 @@ class BooksController < ApplicationController
 
   # POST /books or /books.json
   def create
+    @author = Author.find(params[:author_id])
     @book = Book.new(book_params)
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to book_url(@book), notice: "Book was successfully created." }
+        format.html { redirect_to author_path(@author,@book), notice: "Book was successfully created." }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to book_url(@book), notice: "Book was successfully updated." }
+        format.html { redirect_to author_books_url(@book), notice: "Book was successfully updated." }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit, status: :unprocessable_entity }
